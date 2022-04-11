@@ -105,6 +105,22 @@ public class PracticalTest01Var06MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        // apelarea metodei din activitatea parinte este recomandata, dar nu obligatorie
+        super.onSaveInstanceState(savedInstanceState);
+        // ...
+        savedInstanceState.putInt("GLOBALSCORE", score);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        // apelarea metodei din activitatea parinte este recomandata, dar nu obligatorie
+        super.onRestoreInstanceState(savedInstanceState);
+        // ...
+        score = savedInstanceState.getInt("GLOBALSCORE");
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_practical_test01_var06_main);
